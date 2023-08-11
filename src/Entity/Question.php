@@ -23,6 +23,12 @@ class Question
 
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank]
+    #[Assert\Length(
+        min: 2,
+        max: 50,
+        minMessage: 'The number of the description is less than {{limit}} characters ',
+        maxMessage: 'The number of the description exceeds {{limit}} characters',
+    )]
     private ?string $description = null;
 
     #[ORM\Column]
